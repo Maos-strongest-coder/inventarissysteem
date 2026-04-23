@@ -7,7 +7,7 @@ const {inventory} = useInventoryStore();
 const router = useRouter();
 
 const productsToOrder = computed(() => {
-    return inventory.value.filter(product => product.actualAmount < product.requiredAmount);
+    return inventory.value.filter(p => p.actualAmount < p.requiredAmount);
 });
 
 const calculateDeficit = (actual: number, required: number) => {
