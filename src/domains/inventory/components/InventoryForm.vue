@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {onMounted, reactive} from 'vue';
-import type {product} from '../store';
+import {type product} from '../store';
 
 const props = defineProps<{
     initialData?: product;
@@ -19,8 +19,6 @@ const formData = reactive<product>({
 onMounted(() => {
     if (props.initialData) {
         Object.assign(formData, props.initialData);
-    } else {
-        formData.id = Math.floor(Math.random() * 10000);
     }
 });
 

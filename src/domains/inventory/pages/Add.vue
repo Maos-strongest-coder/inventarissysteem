@@ -3,11 +3,12 @@ import {useRouter} from 'vue-router';
 import {useInventoryStore, type product} from '../store';
 import InventoryForm from '../components/InventoryForm.vue';
 
-const {addProduct} = useInventoryStore();
+const {addProduct, inventory} = useInventoryStore();
 
 const router = useRouter();
 
 const handleAdd = (newProduct: product) => {
+    newProduct.id = inventory.value.length;
     addProduct(newProduct);
     router.push('/');
 };
