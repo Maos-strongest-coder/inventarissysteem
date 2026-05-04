@@ -7,8 +7,12 @@ const {addProduct, inventory} = useInventoryStore();
 
 const router = useRouter();
 
+let idCounter: number =  inventory.value.length
+
+
 const handleAdd = (newProduct: product) => {
-    newProduct.id = inventory.value.length;
+    newProduct.id = idCounter
+    idCounter++
     addProduct(newProduct);
     router.push('/');
 };
