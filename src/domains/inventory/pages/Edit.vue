@@ -13,7 +13,7 @@ const productId = Number(route.params.id);
 
 const existingProduct = getProductById(productId);
 
-const handleAdd = (updatedProduct: product) => {
+const handleEdit = (updatedProduct: product) => {
     updateProduct(updatedProduct);
     router.push('/');
 };
@@ -25,7 +25,7 @@ const handleAdd = (updatedProduct: product) => {
         v-if="existingProduct"
         :initial-data="existingProduct"
         button-text="Aanpassen"
-        @submit="handleAdd"
+        @submit="handleEdit"
         @cancel="router.push('/')"
     />
 </template>
